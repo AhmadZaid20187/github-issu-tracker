@@ -20,11 +20,33 @@
 </head>
 
 <body>
-    <main class="max-w-[30%] bg-red-300 mx-auto">
+    <main class="max-w-[25%]  shadow-lg mx-auto my-[200px]">
         <section>
-            <h1>hello</h1>
+            <div class="text-center">
+                <img class="mx-auto" src="./assets/github-logo.png" alt="">
+                <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
+                <p>Sign in to manage your issues</p>
+            </div>
+            <!-- Form -->
+            <div class="card-body mx-auto ">
+                <fieldset class="fieldset space-y-3">
+                    <div>
+                        <label class="label text-black">Username</label>
+                        <input id="inputUsername" type="username" class="input w-full" placeholder="Enter Username" />
+                        <label class="label text-primary">Default: admin</label>
+                    </div>
+                    <div>
+                        <label class="label text-black">Password</label>
+                        <input id="password" type="password" class="input w-full" placeholder="Enter Password" />
+                        <label class="label text-primary">Default: admin123</label>
+                        <div><a class="link link-hover">Forgot password?</a></div>
+                    </div>
+                    <button class="btn btn-primary mt-4" id="loginBtn">Login</button>
+                </fieldset>
+            </div>
         </section>
     </main>
+    <script src="./login.js"></script>
 </body>
 
 </html>
