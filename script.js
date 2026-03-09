@@ -56,6 +56,28 @@ async function closedBtn() {
     displayIssues(closedOnly);
 }
 
+async function searchIssues(query) {
+    showLoading();
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`);
+    const info = await res.json();
+    hideLoading();
+    displayIssues(info.data);
+}
+
+function getLabels(labels) {
+    const iconMap = {
+        bug: { icon: "fa-bug", cls: "badge-error" },
+        enhancement: { icon: "fa-wand-magic-sparkles", cls: "badge-accent" },
+        "help wanted": { icon: "fa-circle-radiation", cls: "badge-warning" },
+    };
+    return labels.map(label => {
+        const style = iconMap[label] || { icon: "fa-tag", cls: "badge-info" };
+        return `<div class="badge ${style.cls}">
+                    <i class="fa-solid ${style.icon}"></i> ${label}
+                </div>`;
+    }).join("");
+}
+
 
 function displayIssues(issues) {
     // console.log(issues)
