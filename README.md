@@ -1,129 +1,97 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
+1. What is the difference between var, let, and const?
 
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
+Answer: var, let,const are used to declar a variable. var is function-scoped.  It allows re-declaration and reassignment in the same scope. var can trigared bugs. because it can me access before declared.
 
----
+The let was introduce in ES6. ES6 is now the latest vertion of JS. And the let is a Block scoped, that it will only work where it declared.
 
-# Assignment-05: GitHub Issues Tracker
+The const, is also a block scoped. but it different from let. we cant reassign value in it. we can only reasign values in let.
 
+let and const are best to use, because thay dont triggred any bug and we can access it when we had declared.
 
-### **API Endpoints:**
-###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues 
+2. What is the spread operator (...)?
 
+Answer: The spread operator (...) is used spread or expand elements of array, object. it likes opening a box and spread its goods.
 
-###  **Single Issue:**
-   - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
+Ex: 
+const numbers = [1, 2, 3];
 
-   - Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
+console.log(...numbers);
 
+Output: 1 2 3
 
-###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
+Using spread operator we can copy an Array, merge multiple array, and pass value in an function.
 
-   - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
+3. What is the difference between map(), filter(), and forEach()?
 
+Answer: The map(), filter(), and forEach() are used in JS for loop through in array. but they behabe differently when we used them.
 
----
+forEach(): The forEach() function runs for every Element in an array, but it dose not return any new array.
+Ex:
+const numbers = [1, 2, 3];
 
-## 📝 Main Requirements
+numbers.forEach(function(num) {
+  console.log(num * 2);
+});
 
-## 🎨 Design Part
+Output: 
+2
+4
+6
 
-## Login Page
-- Create a login page containing a logo, title, and sub-title
-- Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
-- Styled as per Figma
+map(): map() creates a new array by modifying each element.
 
-## Main Page: 
+Ex:
 
-### Navbar: 
+const number = [1, 2, 3]
 
-- Navbar with website logo/name on the left
-- Search input and button on the right
+const double = number.map(function(num)){
+    return * 2;
+}
+console.log(double)
 
-### Tab Section like Figma: 
+Output: [2, 4, 6]
 
-- 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
+filter(): filter() creates a new array containing only those that passes a condition.
 
-- Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
+Ex:
 
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
+const numbers = [1, 2, 3, 4, 5];
 
+const even = numbers.filter(function(num) {
+  return num % 2 === 0;
+});
 
---- 
+console.log(even);
 
+Output: [2, 4]
 
-## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
+4. What is an arrow function?
 
-- Load all issues and display as per Figma
+Answer: An Arrow Function is a shorter way to declared a functions in JS using the => syntax.It was introduced in ES6 to make code shorter and cleaner.
 
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
+Normal function:
+function add(a, b) {
+  return a + b;
+}
 
-- Each card shows:
-  - Title
-  - Description
-  - Status
-  - Category
-  - Author
-  - Priority
-  - Label
-  - CreatedAt
-- Clicking on a tree name in a card will open a modal and show all the information about that Issue. 
+arrow function: 
+const add = (a, b) => a + b;
 
-### 🚀 Challenges
+5. What are template literals?
 
+Answer: Template Literals are a feature in JS that allow us to create strings more easily, especially when adding variables or writing multi-lines of text. it was also introduce in ES6.
 
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
+Ex:
 
-- Loading spinner on data load
+Normal way:
+const text = "world!";
+const message = "Hello " + text;
 
-- Show active button on changing category names
+console.log(message);
 
-- Implement Search Functionality and 8 meaningful github commit.  
+Template literals:
+const text = "world!";
+const message = `Hello ${text}`;
 
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-    - 1️⃣ What is the difference between var, let, and const?
-    - 2️⃣ What is the spread operator (...)?
-    - 3️⃣ What is the difference between map(), filter(), and forEach()?
-    - 4️⃣ What is an arrow function?
-    - 5️⃣ What are template literals?
-
-
----
-
-## 🛠️ Technology Stack
-
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
-
----
-
-## 🔑 Demo Credentials
-
-```text
-Username: admin
-Password: admin123
-```
-
-
----
-
-### Optional: 
- - No need to show status: Open, Closed styles On modals. 
- - No Need to show icon on labels 
- - No need to apply styles on Priority 
---- 
-
-
-## 📤 What to submit
-
-- **GitHub Repository Link:**
-- **Live Site Link:**
-
----
-
+console.log(message);
 
