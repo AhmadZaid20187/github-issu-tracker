@@ -34,7 +34,7 @@
             </div>
             <div class="flex gap-2">
                 <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>NEW ISSU</button>
+                <button class="btn btn-primary" id="search"><i class="fa-solid fa-plus"></i>NEW ISSU</button>
             </div>
         </div>
     </header>
@@ -46,7 +46,7 @@
         <section class=" shadow-md p-5 rounded-xl gap-8 flex items-center">
             <button class="btn btn-primary px-10" onclick="loadIssues()" id="all">ALL</button>
             <button class="btn btn-primary px-9" onclick="opendBtn()" id="open">Open</button>
-            <button class="btn btn-primary px-9" onclick="closedBtn()" id="closed" id="closed">Closed</button>
+            <button class="btn btn-primary px-9" onclick="closedBtn()" id="closed">Closed</button>
         </section>
 
         <!-- Issu Count -->
@@ -73,15 +73,52 @@
         <section id="issuesContainer" class="shadow-md rounded-xl grid sm:grid-cols-4 gap-4">
             <!-- Cards Dynamically Added Here -->
 
-        </section>
+            <!-- Demo -->
+            <!-- <div class="card bg-base-100 shadow-sm">
+                <div class="card-body space-y-2">
+                    <div class="flex justify-between">
+                        <img src="./assets/Open-Status.png" alt="">
+                        <h2 class="badge badge-soft badge-error px-6 rounded-full">HIGH</h2>
+                    </div>
+                    <h2 class="card-title">
+                        Card Title
+                    </h2>
+                    <p class="line-clamp-2">A card component has a figure, a body part, and inside body there are title
+                        and actions parts</p>
+                    <div class="card-actions justify-start">
+                        <div class="badge  badge-error"><i class="fa-solid fa-bug"></i>BUG</div>
+                        <div class="badge  badge-warning"><i class="fa-solid fa-circle-radiation"></i>Help
+                            Wanted!</div>
+                        <div class="badge badge-accent">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>Enhancement
+                        </div>
 
-        <!-- loading-spinner -->
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h1><span>#1</span> name</h1>
+                        <p>Date</p>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <!-- loading-spinner -->
+        </section>
         <div id="loadingSpinner" class="h-[60vh] hidden justify-center items-center">
             <span class="loading loading-spinner loading-xl"></span>
 
         </div>
 
+
         <!-- Modal -->
+
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="issuDetailsModal.showModal()">open modal</button> -->
+
+
         <dialog id="issuDetailsModal" class="modal">
             <div class="modal-box space-y-3">
                 <div>

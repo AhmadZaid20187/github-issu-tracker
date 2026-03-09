@@ -13,7 +13,6 @@ const modalPriority = document.getElementById("modalPriority");
 
 
 
-
 function showLoading() {
     loadingSpinner.classList.remove("hidden");
     loadingSpinner.classList.add("flex");
@@ -24,7 +23,6 @@ function hideLoading() {
     loadingSpinner.classList.remove("flex");
 }
 
-// Change ALL,Open,Closed
 function setActiveTab(id) {
     ["all", "open", "closed"].forEach(btnId => {
         document.getElementById(btnId).classList.remove("btn-active");
@@ -123,7 +121,6 @@ function displayIssues(issues) {
         issuesContainer.appendChild(card);
     });
 }
-
 document.querySelector("#search").addEventListener("click", () => {
     const query = document.querySelector("input[type='text']").value;
     if (query === "") {
@@ -132,6 +129,7 @@ document.querySelector("#search").addEventListener("click", () => {
         searchIssues(query);
     }
 });
+
 
 async function openIssuModel(issuId) {
     console.log(issuId);
@@ -155,4 +153,4 @@ async function openIssuModel(issuId) {
 }
 
 
-loadIssues()
+loadIssues(); 
