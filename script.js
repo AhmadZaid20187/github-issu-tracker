@@ -2,6 +2,9 @@ const issuesContainer = document.getElementById("issuesContainer")
 const loadingSpinner = document.getElementById("loadingSpinner")
 const openBtn = document.getElementById("open")
 
+
+
+
 function showLoading() {
     loadingSpinner.classList.remove("hidden");
     loadingSpinner.classList.add("flex");
@@ -12,21 +15,47 @@ function hideLoading() {
     loadingSpinner.classList.remove("flex")
 }
 
-async function opendBtn() {
-    showLoading();
-    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-    const openInfo = await res.json();
-    hideLoading();
-    displayOpenIssues(openInfo.data);
+// Change ALL,Open,Closed
+function setActiveTab(id) {
+    ["all", "open", "closed"].forEach(btnId => {
+        document.getElementById(btnId).classList.remove("btn-active");
+        document.getElementById(btnId).classList.remove("btn-primary");
+    });
+    document.getElementById(id).classList.add("btn-active");
+    document.getElementById(id).classList.add("btn-primary");
 }
+
 
 async function loadIssues() {
     showLoading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const info = await res.json();
     hideLoading();
+    setActiveTab("all");
     displayIssues(info.data);
 }
+
+
+async function opendBtn() {
+    showLoading();
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const info = await res.json();
+    const openOnly = info.data.filter(issue => issue.status === "open"); // ✅ filter!
+    hideLoading();
+    setActiveTab("open");
+    displayIssues(openOnly);
+}
+
+async function closedBtn() {
+    showLoading();
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const info = await res.json();
+    const closedOnly = info.data.filter(issue => issue.status === "closed");
+    hideLoading();
+    setActiveTab("closed");
+    displayIssues(closedOnly);
+}
+
 
 function displayIssues(issues) {
     // console.log(issues)
