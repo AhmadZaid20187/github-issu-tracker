@@ -97,7 +97,7 @@ function displayIssues(issues) {
 
     issues.forEach(issue => {
         const card = document.createElement("div");
-        card.className = "card bg-base-100 shadow-sm";
+        card.className = `card bg-base-100 shadow-sm border-t-4 ${issue.status === 'open' ? 'border-t-green-400' : 'border-t-purple-400'}`;
         card.innerHTML = `
             <div class="card-body space-y-2" onclick="openIssuModel(${issue.id})">
                 <div class="flex justify-between">
