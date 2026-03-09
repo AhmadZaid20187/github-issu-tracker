@@ -26,7 +26,7 @@
 
 <body>
     <header>
-        <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar bg-base-100 shadow-sm flex flex-col sm:flex-row gap-4 sm:gap-0">
             <div class="flex-1">
                 <a class="btn btn-ghost text-xl"><img class="size-12" src="./assets/github-logo.png" alt="">GitHub
                     Issues
@@ -43,14 +43,14 @@
 
 
         <!-- Btn-ALL, Open, Closed -->
-        <section class=" shadow-md p-5 rounded-xl gap-8 flex items-center">
+        <section class=" shadow-md p-5 rounded-xl gap-4 sm:gap-8 flex flex-col sm:flex-row items-center">
             <button class="btn btn-primary px-10" onclick="loadIssues()" id="all">ALL</button>
             <button class="btn btn-primary px-9" onclick="opendBtn()" id="open">Open</button>
             <button class="btn btn-primary px-9" onclick="closedBtn()" id="closed">Closed</button>
         </section>
 
         <!-- Issu Count -->
-        <section class="flex shadow-md p-5 rounded-t-xl-xl mt-6 items-center justify-between">
+        <section class="flex flex-col sm:flex-row shadow-md p-5 rounded-t-xl-xl mt-6 items-center sm:justify-between">
             <div class="flex gap-6">
                 <img class="size-12" src="./assets/Aperture.png" alt="">
                 <div>
