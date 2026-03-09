@@ -1,5 +1,5 @@
-const issuesContainer = document.getElementById("issuesContainer")
-const loadingSpinner = document.getElementById("loadingSpinner")
+const issuesContainer = document.getElementById("issuesContainer");
+const loadingSpinner = document.getElementById("loadingSpinner");
 const issueCounter = document.querySelector("span");
 const issuDetailsModal = document.getElementById("issuDetailsModal");
 const modalTitle = document.getElementById("modalTitle");
@@ -20,8 +20,8 @@ function showLoading() {
     issuesContainer.innerHTML = "";
 }
 function hideLoading() {
-    loadingSpinner.classList.add("hidden")
-    loadingSpinner.classList.remove("flex")
+    loadingSpinner.classList.add("hidden");
+    loadingSpinner.classList.remove("flex");
 }
 
 // Change ALL,Open,Closed
@@ -89,7 +89,7 @@ function getLabels(labels) {
 
 
 function displayIssues(issues) {
-    issuesContainer.innerHTML = ""
+    issuesContainer.innerHTML = "";
     issueCounter.textContent = issues.length;
 
     if (issues.length === 0) {
@@ -97,71 +97,32 @@ function displayIssues(issues) {
         return;
     }
 
-
-    issues.forEach(issu => {
-        const card = document.createElement("div")
+    issues.forEach(issue => {
+        const card = document.createElement("div");
         card.className = "card bg-base-100 shadow-sm";
         card.innerHTML = `
-                <div class="card-body space-y-2" onclick="openIssuModel(${issue.id})">
-                    <div class="flex justify-between">
-                        <img src="./assets/${issue.status === 'open' ? 'Open-Status.png' : 'Closed-Status.png'}" alt="" width="24" height="24"/>
-                            <h2 class="badge badge-soft ${issue.priority === 'high' ? 'badge-error' : issue.priority === 'medium' ? 'badge-warning' : 'badge-success'} px-6 rounded-full">${issu.priority}</h2>
-                    </div>
-                    <h2 class="card-title">
-                        ${issu.title}
+            <div class="card-body space-y-2" onclick="openIssuModel(${issue.id})">
+                <div class="flex justify-between">
+                    <img src="./assets/${issue.status === 'open' ? 'Open-Status.png' : 'Closed-Status.png'}" alt="" width="24" height="24"/>
+                    <h2 class="badge badge-soft ${issue.priority === 'high' ? 'badge-error' : issue.priority === 'medium' ? 'badge-warning' : 'badge-success'} px-6 rounded-full">
+                        ${issue.priority}
                     </h2>
-                    <p class="line-clamp-2">${issu.description}</p>
-                    <div class="card-actions justify-start">
-                    ${getLabels(issue.labels)}
-                    </div>
-
-                    <hr>
-
-                        <div>
-                            <h1><span>#${issu.id}</span> ${issu.author}</h1>
-                            <p>${new Date(issue.createdAt).toLocaleDateString()}</p>
-                        </div>
                 </div>
+                <h2 class="card-title" >${issue.title}</h2>
+                <p class="line-clamp-2">${issue.description}</p>
+                <div class="card-actions justify-start">
+                    ${getLabels(issue.labels)}
+                </div>
+                <hr>
+                <div>
+                    <h1><span>#${issue.id}</span> ${issue.author}</h1>
+                    <p>${new Date(issue.createdAt).toLocaleDateString()}</p>
+                </div>
+            </div>
         `;
-        issuesContainer.appendChild(card)
+        issuesContainer.appendChild(card);
     });
 }
-
-// function displayOpenIssues(issues) {
-//     issues.array.forEach(issu => {
-//         const cardO = document.createElement("div");
-//         cardO.className = "card bg-base-100 shadow-sm";
-//         cardO.innerHTML =
-//             `
-//         <div class="card-body space-y-2">
-//                     <div class="flex justify-between">
-//                         <img src="./assets/Open-Status.png" alt="">
-//                             <h2 class="badge badge-soft badge-error px-6 rounded-full">${issu.priority}</h2>
-//                     </div>
-//                     <h2 class="card-title">
-//                         ${issu.title}
-//                     </h2>
-//                     <p class="line-clamp-2">${issu.description}</p>
-//                     <div class="card-actions justify-start">
-//                         <div class="badge  badge-error"><i class="fa-solid fa-bug"></i>${issu.labels[0]}</div>
-//                         <div class="badge  badge-warning"><i class="fa-solid fa-circle-radiation"></i>${issu.labels[1]}</div>
-//                         <div class="badge badge-accent">
-//                             <i class="fa-solid fa-wand-magic-sparkles"></i>Enhancement
-//                         </div>
-
-//                     </div>
-
-//                     <hr>
-
-//                         <div>
-//                             <h1><span>#${issu.id}</span> ${issu.author}</h1>
-//                             <p>${issu.updatedAt}</p>
-//                         </div>
-//                 </div>
-//         `
-//         issuesContainer.appendChild(cardO)
-//     });
-// }
 
 document.querySelector("#search").addEventListener("click", () => {
     const query = document.querySelector("input[type='text']").value;
@@ -194,4 +155,4 @@ async function openIssuModel(issuId) {
 }
 
 
-loadIssues();
+loadIssues()
